@@ -31,7 +31,7 @@ Run the following on the repository you want to format:
 python -m libcst.tool initialize .
 ```
 
-Then, add the `no_optional` modules to the `modules` list on the `.libcst.codemod.yaml` generated.
+Then, add the `no_optional` module to the `modules` list on the `.libcst.codemod.yaml` generated.
 
 Then you are able to run:
 
