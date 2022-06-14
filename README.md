@@ -15,10 +15,28 @@
     <img src="https://img.shields.io/github/license/Kludex/no-optional">
 </p>
 
+This [codemod](https://libcst.readthedocs.io/en/stable/codemods_tutorial.html) replaces `typing.Optional[T]` by `typing.Union[T, None]` in the codebase.
+
 ## Installation
 
 ```bash
 pip install no-optional
+```
+
+## Usage
+
+Run the following on the repository you want to format:
+
+```bash
+python -m libcst.tool initialize .
+```
+
+Then, add the `no_optional` modules to the `modules` list on the `.libcst.codemod.yaml` generated.
+
+Then you are able to run:
+
+```bash
+python3 -m libcst.tool codemod main.NoOptionalCommand <files>
 ```
 
 ## License
