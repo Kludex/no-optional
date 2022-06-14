@@ -15,7 +15,7 @@ from no_optional import NoOptionalCommand
                 """
             from typing import Optional
 
-            def function(a: Optional[int]) -> Optional[int]:
+            def function(a: Optional[int] = None) -> Optional[int]:
                 ...
             """
             ),
@@ -23,7 +23,7 @@ from no_optional import NoOptionalCommand
                 """
             from typing import Union
 
-            def function(a: Union[int, None]) -> Union[int, None]:
+            def function(a: Union[int, None] = None) -> Union[int, None]:
                 ...
             """
             ),

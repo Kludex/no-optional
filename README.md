@@ -36,7 +36,7 @@ Then, add the `no_optional` modules to the `modules` list on the `.libcst.codemo
 Then you are able to run:
 
 ```bash
-python3 -m libcst.tool codemod main.NoOptionalCommand <files>
+python3 -m libcst.tool codemod main.NoOptionalCommand -j 1 <files>
 ```
 
 ## License
