@@ -76,6 +76,42 @@ from no_optional import NoOptionalCommand
             """
             ),
         ),
+        (
+            textwrap.dedent(
+                """
+            from typing import List, Optional
+
+            def function(a: List[Optional[int]]) -> Optional[int]:
+                ...
+            """
+            ),
+            textwrap.dedent(
+                """
+            from typing import List, Union
+
+            def function(a: List[Union[int, None]]) -> Union[int, None]:
+                ...
+            """
+            ),
+        ),
+        (
+            textwrap.dedent(
+                """
+            from typing import Dict, Optional
+
+            def function(a: Dict[str, Optional[int]]) -> Optional[int]:
+                ...
+            """
+            ),
+            textwrap.dedent(
+                """
+            from typing import Dict, Union
+
+            def function(a: Dict[str, Union[int, None]]) -> Union[int, None]:
+                ...
+            """
+            ),
+        ),
     ),
 )
 def test_transformer(input: str, expected: str) -> None:

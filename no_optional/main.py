@@ -4,16 +4,6 @@ from libcst.codemod import VisitorBasedCodemodCommand
 
 
 class NoOptionalCommand(VisitorBasedCodemodCommand):
-    @m.call_if_inside(
-        m.Annotation(
-            annotation=m.Subscript(
-                value=m.Name(value="Optional")
-                | m.Attribute(
-                    value=m.Name(value="typing"), attr=m.Name(value="Optional")
-                )
-            )
-        )
-    )
     @m.leave(
         m.Subscript(
             value=m.Name(value="Optional")
