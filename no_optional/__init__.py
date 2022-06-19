@@ -1,1 +1,1 @@
-from no_optional.main import NoOptionalCommand
+from no_optional.command import NoOptionalCommand
