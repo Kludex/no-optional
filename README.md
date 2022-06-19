@@ -34,15 +34,16 @@ pip install no-optional
 Run the following on the repository you want to format:
 
 ```bash
-python -m libcst.tool initialize .
+python -m no_optional <files>
 ```
 
-Then, add the `no_optional` module to the `modules` list on the `.libcst.codemod.yaml` generated.
+You can also use the pre-commit. Add the following to your `.pre-commit-config.yaml` file:
 
-Then you are able to run:
-
-```bash
-python -m libcst.tool codemod main.NoOptionalCommand -j 1 <files>
+```yaml
+  - repo: https://github.com/Kludex/no-optional
+    rev: 0.3.0
+    hooks:
+      - id: no_optional
 ```
 
 ## License
