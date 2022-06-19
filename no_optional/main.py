@@ -15,7 +15,7 @@ app = Typer()
 @app.command()
 def command(
     files: List[Path] = Argument(..., exists=True, dir_okay=True, allow_dash=True)
-):
+) -> None:
     transformer = NoOptionalCommand(CodemodContext())
     start_time = time.time()
 
