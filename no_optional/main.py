@@ -9,13 +9,14 @@ from typer import Argument, Exit, Typer, secho
 
 from no_optional import NoOptionalCommand
 
-app = Typer()
+app = Typer(add_completion=False)
 
 
 @app.command()
 def command(
     files: List[Path] = Argument(..., exists=True, dir_okay=True, allow_dash=True)
 ) -> None:
+    """Replaces `Optional[T]` by `Union[T, None]`."""
     transformer = NoOptionalCommand(CodemodContext())
     start_time = time.time()
 
