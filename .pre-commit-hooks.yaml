@@ -1,7 +1,7 @@
 - id: no_optional
   name: no_optional
   description: "Replace `Optional[T]` by `Union[T, None]`"
-  entry: no_optional
+  entry: no-optional
   language: python
   types: [python]
   require_serial: true
