@@ -21,7 +21,7 @@ def command(
 
     with open(devnull, "w") as null:
         with contextlib.redirect_stderr(null):
-            result = parallel_exec_transform_with_prettyprint(
+            parallel_exec_transform_with_prettyprint(
                 transformer,
                 [str(file) for file in files],
                 include_generated=True,
