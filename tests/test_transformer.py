@@ -10,7 +10,7 @@ from no_optional import NoOptionalCommand
 @pytest.mark.parametrize(
     "input,expected",
     (
-        (
+        pytest.param(
             textwrap.dedent(
                 """
             from typing import Optional
@@ -28,7 +28,7 @@ from no_optional import NoOptionalCommand
             """
             ),
         ),
-        (
+        pytest.param(
             textwrap.dedent(
                 """
             import typing
@@ -46,7 +46,7 @@ from no_optional import NoOptionalCommand
             """
             ),
         ),
-        (
+        pytest.param(
             textwrap.dedent(
                 """
             from typing import Optional
@@ -64,7 +64,25 @@ from no_optional import NoOptionalCommand
             """
             ),
         ),
-        (
+        pytest.param(
+            textwrap.dedent(
+                """
+            import typing
+
+            class Potato:
+                a: typing.Optional[typing.Union[int, str]]
+            """
+            ),
+            textwrap.dedent(
+                """
+            import typing
+
+            class Potato:
+                a: typing.Union[int, str, None]
+            """
+            ),
+        ),
+        pytest.param(
             textwrap.dedent(
                 """
             a: int = 2
@@ -76,7 +94,7 @@ from no_optional import NoOptionalCommand
             """
             ),
         ),
-        (
+        pytest.param(
             textwrap.dedent(
                 """
             from typing import List, Optional
@@ -94,7 +112,7 @@ from no_optional import NoOptionalCommand
             """
             ),
         ),
-        (
+        pytest.param(
             textwrap.dedent(
                 """
             from typing import Dict, Optional
@@ -111,6 +129,25 @@ from no_optional import NoOptionalCommand
                 ...
             """
             ),
+        ),
+        pytest.param(
+            textwrap.dedent(
+                """
+            from typing import Optional, Union
+
+            def function(a: Union[A, B, Optional[D], E, Optional[F]] = None):
+                ...
+            """
+            ),
+            textwrap.dedent(
+                """
+            from typing import Union
+
+            def function(a: Union[A, B, D, E, F, None] = None):
+                ...
+            """
+            ),
+            marks=pytest.mark.skip("Not implemented"),
         ),
     ),
 )
