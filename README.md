@@ -23,6 +23,13 @@ As the tweet says, we have two reasons for doing this:
 It only means that it accepts `None` as a possible value.
 2. On Python 3.10+ you can type annotate as `str | None` instead of the above two. Which is more similar to `Union[str, None]` than `Optional[str]`.
 
+## Alternative
+
+[`pyupgrade`](https://github.com/asottile/pyupgrade) does what this package is doing already if you enable `--py310-plus` flag. `pyupgrade` will add
+`from __future__ import annotations` for versions below Python 3.10. On the other hand, `no_optional` will not add `from __future__ import annotations`.
+
+If you don't use any package that uses runtime introspection, and you don't care about the feature flag, feel free to use `pyupgrade`.
+
 ## Installation
 
 ```bash
