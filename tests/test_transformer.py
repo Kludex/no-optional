@@ -133,27 +133,29 @@ from no_optional import NoOptionalCommand
         pytest.param(
             textwrap.dedent(
                 """
+            import typing
+
             from typing import Optional, Union
 
-            def function(a: Union[A, B, Optional[D], E, Optional[F]] = None):
+            def function(a: Union[A, B, Optional[D], E, typing.Optional[F]] = None):
                 ...
             """
             ),
             textwrap.dedent(
                 """
-            from typing import Union
+            import typing
+
+            from typing import Union, Union
 
             def function(a: Union[A, B, D, E, F, None] = None):
                 ...
             """
             ),
-            marks=pytest.mark.skip("Not implemented"),
         ),
     ),
 )
 def test_transformer(input: str, expected: str) -> None:
     source_tree = cst.parse_module(input)
-    print(source_tree)
     transformer = NoOptionalCommand(CodemodContext())
     modified_tree = source_tree.visit(transformer)
     assert modified_tree.code == expected
