@@ -41,7 +41,7 @@ You can also use the pre-commit. Add the following to your `.pre-commit-config.y
 
 ```yaml
   - repo: https://github.com/Kludex/no-optional
-    rev: 0.3.1
+    rev: 0.4.0
     hooks:
       - id: no_optional
 ```
