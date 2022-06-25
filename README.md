@@ -27,7 +27,7 @@ It only means that it accepts `None` as a possible value.
 
 [`pyupgrade`](https://github.com/asottile/pyupgrade) is great but `no-optional` is better when you need runtime support like for `FastAPI` and `pydantic`.
 
-The reason being that `no-optional` just do the replacement. On the other hand, `pyupgrade` adds [`from __future__ import annotations`](https://peps.python.org/pep-0563/) for versions below Python 3.10.
+The reason being that `no-optional` just does the replacement. On the other hand, `pyupgrade` requires [`from __future__ import annotations`](https://peps.python.org/pep-0563/) for versions below Python 3.10.
 
 ## Installation
 
