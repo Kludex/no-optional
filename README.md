@@ -25,10 +25,9 @@ It only means that it accepts `None` as a possible value.
 
 ## Alternative
 
-[`pyupgrade`](https://github.com/asottile/pyupgrade) does what this package is doing already if you enable `--py310-plus` flag. `pyupgrade` will add
-`from __future__ import annotations` for versions below Python 3.10. On the other hand, `no_optional` will not add `from __future__ import annotations`.
+[`pyupgrade`](https://github.com/asottile/pyupgrade) is great but `no-optional` is better when you need runtime support like for `FastAPI` and `pydantic`.
 
-If you don't need to do any runtime introspection, and you don't care about the feature flag, feel free to use `pyupgrade`.
+The reason being that `no-optional` just does the replacement. On the other hand, `pyupgrade` requires [`from __future__ import annotations`](https://peps.python.org/pep-0563/) for versions below Python 3.10.
 
 ## Installation
 
